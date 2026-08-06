@@ -8,25 +8,43 @@ export const metadata: Metadata = {
 
 const whatsapp =
   "https://wa.me/5518996317665?text=Ol%C3%A1%2C%20Dra.%20Beatriz!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.";
+const googleProfile = "https://share.google/wtFcT8o6X7Npu98WC";
 
 const treatments = [
   {
     number: "01",
     title: "Harmonização facial",
-    text: "Planejamento global e individualizado para equilibrar proporções, suavizar sinais do tempo e valorizar a identidade de cada rosto.",
-    tags: "Contorno · Sustentação · Perfil",
+    text: "Um planejamento individual para equilibrar proporções, suavizar sinais do tempo e valorizar a identidade de cada rosto.",
+    items: ["Contorno facial", "Preenchimentos", "Toxina botulínica"],
   },
   {
     number: "02",
     title: "Lábios & expressão",
-    text: "Definição, hidratação e volume na medida certa, respeitando a anatomia e a delicadeza dos seus traços.",
-    tags: "Preenchimento labial · Naturalidade",
+    text: "Definição, hidratação e volume na medida certa, sempre respeitando a anatomia e a delicadeza dos seus traços.",
+    items: ["Preenchimento labial", "Contorno", "Naturalidade"],
   },
   {
     number: "03",
+    title: "Bioestimuladores",
+    text: "Protocolos para estimular colágeno e favorecer firmeza, qualidade da pele e sustentação de forma progressiva.",
+    items: ["Bioestimulador líquido", "Fios de PDO"],
+  },
+  {
+    number: "04",
     title: "Harmonização íntima",
     text: "Cuidado feminino acolhedor, discreto e personalizado, com foco em bem-estar, segurança e confiança.",
-    tags: "Acolhimento · Privacidade · Bem-estar",
+    items: ["Acolhimento", "Privacidade", "Plano individual"],
+  },
+  {
+    number: "05",
+    title: "Outros tratamentos",
+    text: "Cuidados complementares selecionados de acordo com as necessidades da pele, do couro cabeludo e do corpo.",
+    items: [
+      "Tratamento capilar",
+      "Tratamento de vasinhos",
+      "Limpeza de pele",
+      "Microagulhamento",
+    ],
   },
 ];
 
@@ -34,15 +52,15 @@ const testimonials = [
   {
     quote:
       "Profissional muito prestativa, educada e comprometida com seus pacientes.",
-    name: "Maria P.",
+    name: "Maria Piovesani",
   },
   {
     quote: "O acompanhamento após os procedimentos é surpreendente!",
-    name: "Luis F.",
+    name: "Luis Felipe do Carmo",
   },
   {
-    quote: "Dra. Beatriz carinhosa e super responsável. Sou paciente fiel!",
-    name: "Elaine F.",
+    quote: "Dra. Beatriz carinhosa e super responsável, sou paciente fiel!",
+    name: "Elaine Fabri",
   },
 ];
 
@@ -54,7 +72,7 @@ export default function Home() {
   return (
     <main>
       <header className="nav-shell">
-        <a className="brand" href="#inicio" aria-label="Início">
+        <a className="brand" href="#inicio" aria-label="Ir para o início">
           <span>BD</span>
           <strong>
             Beatriz <i>Demarchi</i>
@@ -64,21 +82,16 @@ export default function Home() {
           <a href="#sobre">Sobre</a>
           <a href="#tratamentos">Tratamentos</a>
           <a href="#resultados">Resultados</a>
-          <a href="#contato">Contato</a>
+          <a href="#avaliacoes">Avaliações</a>
         </nav>
         <a className="nav-cta" href={whatsapp} target="_blank" rel="noreferrer">
-          Agendar avaliação <Arrow />
+          <span>Agendar avaliação</span> <Arrow />
         </a>
       </header>
 
       <section className="hero" id="inicio">
-        <img
-          className="hero-image"
-          src="/images/beatriz-portrait.png"
-          alt="Dra. Beatriz Demarchi"
-        />
-        <div className="hero-shade" />
         <div className="hero-copy">
+          <div className="hero-monogram" aria-hidden="true">BD</div>
           <p className="eyebrow light">Harmonização facial & íntima · Dourados, MS</p>
           <h1>
             Sua beleza,
@@ -86,17 +99,27 @@ export default function Home() {
             <em>na sua essência.</em>
           </h1>
           <p className="hero-text">
-            Naturalidade, feminilidade e confiança em procedimentos pensados
+            Naturalidade, feminilidade e confiança em uma experiência criada
             para valorizar quem você já é.
           </p>
-          <a className="button light-button" href={whatsapp} target="_blank" rel="noreferrer">
-            Quero cuidar de mim <Arrow />
-          </a>
+          <div className="hero-actions">
+            <a className="button pearl-button" href={whatsapp} target="_blank" rel="noreferrer">
+              Quero cuidar de mim <Arrow />
+            </a>
+            <a className="text-link" href="#tratamentos">Conhecer tratamentos ↓</a>
+          </div>
         </div>
-        <div className="hero-side-note">Biomédica Esteta · CRBM 46286</div>
-        <a className="scroll-cue" href="#sobre" aria-label="Rolar para conhecer">
-          <span>Descubra</span> ↓
-        </a>
+        <div className="hero-visual">
+          <img src="/images/beatriz-portrait.png" alt="Dra. Beatriz Demarchi" />
+          <div className="hero-credential">Biomédica Esteta · CRBM 46286</div>
+        </div>
+      </section>
+
+      <section className="trust-strip" aria-label="Destaques do atendimento">
+        <div><strong>5,0</strong><span>Avaliação no Google</span></div>
+        <div><strong>17</strong><span>Avaliações públicas</span></div>
+        <div><strong>Dourados</strong><span>Atendimento em MS</span></div>
+        <div><strong>Você no centro</strong><span>Plano individualizado</span></div>
       </section>
 
       <section className="manifesto" id="sobre">
@@ -125,6 +148,7 @@ export default function Home() {
       <section className="portrait-break">
         <div className="portrait-card">
           <img src="/images/beatriz-full.png" alt="Dra. Beatriz em retrato profissional" />
+          <span>Beatriz Demarchi</span>
         </div>
         <div className="portrait-statement">
           <span className="signature">Beatriz</span>
@@ -139,24 +163,32 @@ export default function Home() {
       <section className="treatments" id="tratamentos">
         <div className="section-head">
           <div className="section-number">02 — Tratamentos</div>
-          <p className="eyebrow">Cuidado pensado em detalhes</p>
-          <h2>
-            Técnica precisa.
-            <br />Resultados <em>sutis.</em>
-          </h2>
+          <div>
+            <p className="eyebrow">Cuidado pensado em detalhes</p>
+            <h2>
+              Técnica precisa.
+              <br />Resultados <em>sutis.</em>
+            </h2>
+            <p className="section-intro">
+              Cada indicação parte de uma avaliação cuidadosa. O tratamento é
+              escolhido para o seu momento, sua anatomia e seus objetivos.
+            </p>
+          </div>
         </div>
-        <div className="treatment-list">
+        <div className="treatment-grid">
           {treatments.map((item) => (
-            <article className="treatment-item" key={item.number}>
-              <span>{item.number}</span>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-                <small>{item.tags}</small>
+            <article className="treatment-card" key={item.number}>
+              <div className="treatment-topline">
+                <span>{item.number}</span>
+                <a href={whatsapp} target="_blank" rel="noreferrer" aria-label={`Conversar sobre ${item.title}`}>
+                  <Arrow />
+                </a>
               </div>
-              <a href={whatsapp} target="_blank" rel="noreferrer" aria-label={`Saber mais sobre ${item.title}`}>
-                <Arrow />
-              </a>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <ul>
+                {item.items.map((detail) => <li key={detail}>{detail}</li>)}
+              </ul>
             </article>
           ))}
         </div>
@@ -176,17 +208,11 @@ export default function Home() {
         <div className="result-grid">
           <figure className="result-card square-result">
             <img src="/images/resultado-labios.jpeg" alt="Antes e depois de harmonização labial" />
-            <figcaption>
-              <span>Harmonização labial</span>
-              <small>Antes & depois</small>
-            </figcaption>
+            <figcaption><span>Harmonização labial</span><small>Antes & depois</small></figcaption>
           </figure>
           <figure className="result-card tall-result">
             <img src="/images/resultado-perfil.jpeg" alt="Antes e depois de harmonização facial de perfil" />
-            <figcaption>
-              <span>Harmonização facial</span>
-              <small>Antes & depois</small>
-            </figcaption>
+            <figcaption><span>Harmonização facial</span><small>Antes & depois</small></figcaption>
           </figure>
         </div>
         <p className="results-note">
@@ -195,32 +221,29 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="testimonials">
+      <section className="testimonials" id="avaliacoes">
         <div className="section-head compact-head">
-          <div className="section-number">04 — Experiências</div>
-          <p className="eyebrow">Quem viveu, compartilha</p>
-          <h2>
-            Cuidado que deixa
-            <br />uma <em>lembrança bonita.</em>
-          </h2>
+          <div className="section-number">04 — Avaliações reais</div>
+          <div>
+            <p className="eyebrow">Quem viveu, compartilha</p>
+            <h2>
+              Cuidado que deixa
+              <br />uma <em>lembrança bonita.</em>
+            </h2>
+          </div>
         </div>
         <div className="testimonial-grid">
           {testimonials.map((item) => (
             <blockquote key={item.name}>
               <div className="stars" aria-label="5 estrelas">★★★★★</div>
               <p>“{item.quote}”</p>
-              <footer>{item.name} · avaliação no Google</footer>
+              <footer>{item.name}<span>Avaliação pública no Google</span></footer>
             </blockquote>
           ))}
         </div>
-        <a
-          className="google-rating"
-          href="https://share.google/wtFcT8o6X7Npu98WC"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a className="google-rating" href={googleProfile} target="_blank" rel="noreferrer">
           <strong>5,0</strong>
-          <span>★★★★★<br />17 avaliações no Google</span>
+          <span>★★★★★<small>17 avaliações no Google</small></span>
           <Arrow />
         </a>
       </section>
@@ -228,6 +251,7 @@ export default function Home() {
       <section className="consultation" id="contato">
         <div className="consultation-image">
           <img src="/images/beatriz-portrait.png" alt="Dra. Beatriz Demarchi" />
+          <div className="image-frame" aria-hidden="true" />
         </div>
         <div className="consultation-copy">
           <p className="eyebrow light">Seu momento começa aqui</p>
@@ -239,41 +263,28 @@ export default function Home() {
             Agende uma avaliação individual e descubra um plano de cuidados
             desenhado para seus objetivos, com transparência e acolhimento.
           </p>
-          <a className="button light-button" href={whatsapp} target="_blank" rel="noreferrer">
+          <a className="button pearl-button" href={whatsapp} target="_blank" rel="noreferrer">
             Agendar pelo WhatsApp <Arrow />
           </a>
           <div className="contact-details">
-            <div>
-              <span>Endereço</span>
-              <p>R. Oliveira Marques, 2855<br />Vila Helena · Dourados, MS</p>
-            </div>
-            <div>
-              <span>Contato</span>
-              <p>(18) 99631-7665<br />@drabeatrizdemarchi</p>
-            </div>
+            <div><span>Endereço</span><p>R. Oliveira Marques, 2855<br />Vila Helena · Dourados, MS</p></div>
+            <div><span>Contato</span><p>(18) 99631-7665<br />@drabeatrizdemarchi</p></div>
           </div>
         </div>
       </section>
 
       <footer className="footer">
-        <div className="footer-brand">
-          <span>BD</span>
-          <strong>Beatriz Demarchi</strong>
-        </div>
+        <div className="footer-brand"><span>BD</span><strong>Beatriz Demarchi</strong></div>
         <p>Harmonização Facial & Íntima · Dourados, MS</p>
         <div className="footer-links">
-          <a href="https://www.instagram.com/drabeatrizdemarchi/" target="_blank" rel="noreferrer">
-            Instagram <Arrow />
-          </a>
-          <a href={whatsapp} target="_blank" rel="noreferrer">
-            WhatsApp <Arrow />
-          </a>
+          <a href="https://www.instagram.com/drabeatrizdemarchi/" target="_blank" rel="noreferrer">Instagram <Arrow /></a>
+          <a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp <Arrow /></a>
         </div>
         <small>© 2026 Dra. Beatriz Demarchi · CRBM 46286</small>
       </footer>
 
       <a className="floating-whatsapp" href={whatsapp} target="_blank" rel="noreferrer" aria-label="Agendar pelo WhatsApp">
-        <span>Agendar</span> ↗
+        <span>Agendar agora</span> <Arrow />
       </a>
     </main>
   );
