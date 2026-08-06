@@ -40,13 +40,8 @@ main { overflow: clip; }
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(16px);
 }
-.brand { display: flex; align-items: center; gap: 13px; justify-self: start; }
-.brand > span, .footer-brand > span {
-  width: 39px; height: 39px; border: 1px solid currentColor; border-radius: 50%;
-  display: grid; place-items: center; font: 500 15px/1 var(--font-serif); letter-spacing: -.08em;
-}
-.brand strong { font: 500 22px/1 var(--font-serif); letter-spacing: .01em; }
-.brand i { font-weight: 400; }
+.brand { display: flex; align-items: center; justify-self: start; }
+.brand-logo { width: 205px; height: 68px; object-fit: contain; object-position: left center; }
 .nav-shell nav { display: flex; gap: clamp(18px, 2.2vw, 34px); font-size: 10px; text-transform: uppercase; letter-spacing: .16em; }
 .nav-shell nav a { position: relative; opacity: .72; transition: opacity .2s; }
 .nav-shell nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -8px; height: 1px; background: var(--cranberry); transition: right .25s; }
@@ -58,7 +53,6 @@ main { overflow: clip; }
 .hero { min-height: 850px; padding-top: 82px; display: grid; grid-template-columns: 52% 48%; background: var(--cranberry); color: var(--pearl); }
 .hero-copy { position: relative; min-width: 0; padding: clamp(125px, 13vh, 170px) 6vw 90px 8vw; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
 .hero-copy::after { content: ""; position: absolute; width: 430px; height: 430px; border: 1px solid rgba(242,241,237,.14); border-radius: 50%; left: -210px; bottom: -180px; }
-.hero-monogram { position: absolute; right: 3vw; top: 85px; font: 400 clamp(120px, 17vw, 270px)/1 var(--font-serif); color: rgba(242,241,237,.055); letter-spacing: -.12em; }
 .eyebrow { margin: 0 0 26px; text-transform: uppercase; letter-spacing: .22em; font-size: 9px; font-weight: 600; }
 .eyebrow.light { color: rgba(242,241,237,.7); }
 h1, h2, h3, blockquote { font-family: var(--font-serif), serif; }
@@ -124,12 +118,14 @@ h1 em, h2 em { font-weight: 400; color: var(--sand-soft); }
 .results .eyebrow { color: rgba(242,241,237,.58); }
 .results h2 { font-size: clamp(50px, 6.6vw, 98px); }
 .results h2 em, .consultation h2 em { color: var(--sand-soft); }
-.result-grid { margin-top: 100px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: end; gap: 2.2vw; }
-.result-card { margin: 0; position: relative; overflow: hidden; background: var(--pearl); }
-.result-card img { height: 100%; object-fit: cover; transition: transform .7s ease; }
+.carousel-hint { margin: 38px 0 0; display: flex; align-items: center; gap: 18px; color: rgba(242,241,237,.62); font-size: 9px; text-transform: uppercase; letter-spacing: .15em; }
+.result-carousel { margin: 90px -8vw 0; padding: 0 8vw 28px; display: flex; gap: 22px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--sand) rgba(242,241,237,.12); cursor: grab; touch-action: pan-x; }
+.result-carousel:active { cursor: grabbing; }
+.result-carousel:focus-visible { outline: 2px solid var(--sand); outline-offset: 6px; }
+.result-card { flex: 0 0 min(78vw, 500px); aspect-ratio: .68/1; margin: 0; position: relative; overflow: hidden; background: #e6e0d9; scroll-snap-align: start; }
+.result-card img { height: 100%; object-fit: contain; transition: transform .7s ease; }
 .result-card:hover img { transform: scale(1.02); }
-.square-result { aspect-ratio: 1/1; }
-.tall-result { aspect-ratio: .72/1; }
+.square-result { flex-basis: min(84vw, 680px); }
 .result-card figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 25px; display: flex; justify-content: space-between; align-items: end; background: linear-gradient(transparent, rgba(52,18,28,.8)); }
 .result-card figcaption span { font: 400 26px/1 var(--font-serif); }
 .result-card figcaption small { text-transform: uppercase; letter-spacing: .15em; font-size: 8px; }
@@ -163,8 +159,8 @@ h1 em, h2 em { font-weight: 400; color: var(--sand-soft); }
 .contact-details p { margin: 0; font-size: 11px; line-height: 1.7; }
 
 .footer { padding: 65px 8vw 35px; background: var(--cranberry-dark); color: var(--pearl); display: grid; grid-template-columns: 1fr 1fr auto; align-items: center; gap: 35px; }
-.footer-brand { display: flex; align-items: center; gap: 14px; }
-.footer-brand strong { font: 400 24px/1 var(--font-serif); }
+.footer-brand { display: flex; align-items: center; }
+.footer-brand img { width: 230px; height: 115px; object-fit: contain; object-position: left center; }
 .footer > p { font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: rgba(242,241,237,.52); }
 .footer-links { display: flex; gap: 28px; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; }
 .footer small { grid-column: 1 / -1; margin-top: 30px; padding-top: 25px; border-top: 1px solid rgba(242,241,237,.14); color: rgba(242,241,237,.38); font-size: 8px; }
@@ -181,13 +177,11 @@ h1 em, h2 em { font-weight: 400; color: var(--sand-soft); }
 @media (max-width: 760px) {
   html { scroll-padding-top: 70px; }
   .nav-shell { height: 70px; padding: 0 20px; }
-  .brand > span { width: 34px; height: 34px; font-size: 13px; }
-  .brand strong { font-size: 18px; }
+  .brand-logo { width: 145px; height: 55px; }
   .nav-cta { min-height: 38px; padding: 0 13px; }
   .nav-cta span { font-size: 8px; }
   .hero { min-height: auto; padding-top: 70px; grid-template-columns: 1fr; }
   .hero-copy { min-height: 630px; padding: 112px 24px 72px; }
-  .hero-monogram { top: 60px; right: -20px; font-size: 150px; }
   h1 { font-size: clamp(62px, 18vw, 84px); line-height: .84; }
   .hero-text { max-width: 340px; margin: 32px 0 28px; }
   .hero-actions { align-items: flex-start; flex-direction: column; gap: 22px; }
@@ -213,8 +207,9 @@ h1 em, h2 em { font-weight: 400; color: var(--sand-soft); }
   .treatment-card, .treatment-card:last-child { grid-column: 1; min-height: 380px; padding: 28px 24px; border-left: 1px solid var(--line); }
   .treatment-card h3 { margin-top: 48px; font-size: 45px; }
   .results { padding: 95px 24px 70px; }
-  .result-grid { margin-top: 60px; grid-template-columns: 1fr; gap: 20px; }
-  .tall-result { aspect-ratio: .8/1; }
+  .result-carousel { margin-top: 58px; gap: 14px; padding-bottom: 22px; }
+  .result-card { flex-basis: 82vw; aspect-ratio: .62/1; }
+  .square-result { flex-basis: 88vw; aspect-ratio: 1/1; }
   .testimonials { padding: 95px 24px; }
   .testimonial-grid { margin-top: 55px; grid-template-columns: 1fr; }
   .testimonial-grid blockquote { min-height: 290px; }

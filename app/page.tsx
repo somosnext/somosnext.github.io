@@ -64,6 +64,15 @@ const testimonials = [
   },
 ];
 
+const results = [
+  { src: "/images/resultado-labios.jpeg", title: "Harmonização facial", shape: "square" },
+  { src: "/images/resultado-labios-2.jpeg", title: "Preenchimento labial", shape: "portrait" },
+  { src: "/images/resultado-nariz.jpeg", title: "Perfil e nariz", shape: "portrait" },
+  { src: "/images/resultado-labios-3.jpeg", title: "Contorno labial", shape: "portrait" },
+  { src: "/images/resultado-facial-frontal.jpeg", title: "Harmonização facial", shape: "portrait" },
+  { src: "/images/resultado-perfil-2.jpeg", title: "Harmonização de perfil", shape: "portrait" },
+];
+
 function Arrow() {
   return <span aria-hidden="true">↗</span>;
 }
@@ -73,16 +82,13 @@ export default function Home() {
     <main>
       <header className="nav-shell">
         <a className="brand" href="#inicio" aria-label="Ir para o início">
-          <span>BD</span>
-          <strong>
-            Beatriz <i>Demarchi</i>
-          </strong>
+          <img className="brand-logo" src="/logo-beatriz.png" alt="Dra. Beatriz Demarchi, Biomédica Esteta" />
         </a>
         <nav aria-label="Navegação principal">
           <a href="#sobre">Sobre</a>
           <a href="#tratamentos">Tratamentos</a>
-          <a href="#resultados">Resultados</a>
           <a href="#avaliacoes">Avaliações</a>
+          <a href="#resultados">Resultados</a>
         </nav>
         <a className="nav-cta" href={whatsapp} target="_blank" rel="noreferrer">
           <span>Agendar avaliação</span> <Arrow />
@@ -91,7 +97,6 @@ export default function Home() {
 
       <section className="hero" id="inicio">
         <div className="hero-copy">
-          <div className="hero-monogram" aria-hidden="true">BD</div>
           <p className="eyebrow light">Harmonização facial & íntima · Dourados, MS</p>
           <h1>
             Sua beleza,
@@ -194,36 +199,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="results" id="resultados">
-        <div className="results-intro">
-          <div className="section-number light-number">03 — Resultados reais</div>
-          <div>
-            <p className="eyebrow light">Naturalidade que se percebe</p>
-            <h2>
-              Mudanças delicadas.
-              <br />Confiança <em>renovada.</em>
-            </h2>
-          </div>
-        </div>
-        <div className="result-grid">
-          <figure className="result-card square-result">
-            <img src="/images/resultado-labios.jpeg" alt="Antes e depois de harmonização labial" />
-            <figcaption><span>Harmonização labial</span><small>Antes & depois</small></figcaption>
-          </figure>
-          <figure className="result-card tall-result">
-            <img src="/images/resultado-perfil.jpeg" alt="Antes e depois de harmonização facial de perfil" />
-            <figcaption><span>Harmonização facial</span><small>Antes & depois</small></figcaption>
-          </figure>
-        </div>
-        <p className="results-note">
-          Imagens publicadas com autorização. Cada organismo responde de forma
-          individual; resultados não podem ser garantidos.
-        </p>
-      </section>
-
       <section className="testimonials" id="avaliacoes">
         <div className="section-head compact-head">
-          <div className="section-number">04 — Avaliações reais</div>
+          <div className="section-number">03 — Avaliações reais</div>
           <div>
             <p className="eyebrow">Quem viveu, compartilha</p>
             <h2>
@@ -246,6 +224,32 @@ export default function Home() {
           <span>★★★★★<small>17 avaliações no Google</small></span>
           <Arrow />
         </a>
+      </section>
+
+      <section className="results" id="resultados">
+        <div className="results-intro">
+          <div className="section-number light-number">04 — Resultados reais</div>
+          <div>
+            <p className="eyebrow light">Naturalidade que se percebe</p>
+            <h2>
+              Mudanças delicadas.
+              <br />Confiança <em>renovada.</em>
+            </h2>
+            <p className="carousel-hint"><span aria-hidden="true">←</span> Arraste para explorar os resultados <span aria-hidden="true">→</span></p>
+          </div>
+        </div>
+        <div className="result-carousel" role="region" aria-label="Galeria de antes e depois" tabIndex={0}>
+          {results.map((item, index) => (
+            <figure className={`result-card ${item.shape === "square" ? "square-result" : "portrait-result"}`} key={item.src}>
+              <img src={item.src} alt={`Antes e depois: ${item.title}`} />
+              <figcaption><span>{item.title}</span><small>{String(index + 1).padStart(2, "0")} / {String(results.length).padStart(2, "0")}</small></figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="results-note">
+          Imagens publicadas com autorização. Cada organismo responde de forma
+          individual; resultados não podem ser garantidos.
+        </p>
       </section>
 
       <section className="consultation" id="contato">
@@ -274,7 +278,7 @@ export default function Home() {
       </section>
 
       <footer className="footer">
-        <div className="footer-brand"><span>BD</span><strong>Beatriz Demarchi</strong></div>
+        <div className="footer-brand"><img src="/logo-beatriz.png" alt="Dra. Beatriz Demarchi" /></div>
         <p>Harmonização Facial & Íntima · Dourados, MS</p>
         <div className="footer-links">
           <a href="https://www.instagram.com/drabeatrizdemarchi/" target="_blank" rel="noreferrer">Instagram <Arrow /></a>
