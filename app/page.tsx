@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 const whatsapp =
   "https://wa.me/5518996317665?text=Ol%C3%A1%2C%20Dra.%20Beatriz!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.";
 const googleProfile = "https://share.google/wtFcT8o6X7Npu98WC";
+const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const treatments = [
   {
@@ -65,12 +66,12 @@ const testimonials = [
 ];
 
 const results = [
-  { src: "/images/resultado-labios.jpeg", title: "Harmonização facial", shape: "square" },
-  { src: "/images/resultado-labios-2.jpeg", title: "Preenchimento labial", shape: "portrait" },
-  { src: "/images/resultado-nariz.jpeg", title: "Perfil e nariz", shape: "portrait" },
-  { src: "/images/resultado-labios-3.jpeg", title: "Contorno labial", shape: "portrait" },
-  { src: "/images/resultado-facial-frontal.jpeg", title: "Harmonização facial", shape: "portrait" },
-  { src: "/images/resultado-perfil-2.jpeg", title: "Harmonização de perfil", shape: "portrait" },
+  { src: `${assetBase}/images/resultado-labios.jpeg`, title: "Harmonização facial", shape: "square" },
+  { src: `${assetBase}/images/resultado-labios-2.jpeg`, title: "Preenchimento labial", shape: "portrait" },
+  { src: `${assetBase}/images/resultado-nariz.jpeg`, title: "Perfil e nariz", shape: "portrait" },
+  { src: `${assetBase}/images/resultado-labios-3.jpeg`, title: "Contorno labial", shape: "portrait" },
+  { src: `${assetBase}/images/resultado-facial-frontal.jpeg`, title: "Harmonização facial", shape: "portrait" },
+  { src: `${assetBase}/images/resultado-perfil-2.jpeg`, title: "Harmonização de perfil", shape: "portrait" },
 ];
 
 function Arrow() {
@@ -82,7 +83,7 @@ export default function Home() {
     <main>
       <header className="nav-shell">
         <a className="brand" href="#inicio" aria-label="Ir para o início">
-          <img className="brand-logo" src="/logo-beatriz.png" alt="Dra. Beatriz Demarchi, Biomédica Esteta" />
+          <img className="brand-logo" src={`${assetBase}/logo-beatriz.png`} alt="Dra. Beatriz Demarchi, Biomédica Esteta" />
         </a>
         <nav aria-label="Navegação principal">
           <a href="#sobre">Sobre</a>
@@ -115,7 +116,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-visual">
-          <img src="/images/beatriz-portrait.png" alt="Dra. Beatriz Demarchi" />
+          <img src={`${assetBase}/images/beatriz-portrait.png`} alt="Dra. Beatriz Demarchi" />
           <div className="hero-credential">Biomédica Esteta · CRBM 46286</div>
         </div>
       </section>
@@ -152,7 +153,7 @@ export default function Home() {
 
       <section className="portrait-break">
         <div className="portrait-card">
-          <img src="/images/beatriz-full.png" alt="Dra. Beatriz em retrato profissional" />
+          <img src={`${assetBase}/images/beatriz-full.png`} alt="Dra. Beatriz em retrato profissional" />
           <span>Beatriz Demarchi</span>
         </div>
         <div className="portrait-statement">
@@ -254,7 +255,7 @@ export default function Home() {
 
       <section className="consultation" id="contato">
         <div className="consultation-image">
-          <img src="/images/beatriz-portrait.png" alt="Dra. Beatriz Demarchi" />
+          <img src={`${assetBase}/images/beatriz-portrait.png`} alt="Dra. Beatriz Demarchi" />
           <div className="image-frame" aria-hidden="true" />
         </div>
         <div className="consultation-copy">
@@ -278,7 +279,7 @@ export default function Home() {
       </section>
 
       <footer className="footer">
-        <div className="footer-brand"><img src="/logo-beatriz.png" alt="Dra. Beatriz Demarchi" /></div>
+        <div className="footer-brand"><img src={`${assetBase}/logo-beatriz.png`} alt="Dra. Beatriz Demarchi" /></div>
         <p>Harmonização Facial & Íntima · Dourados, MS</p>
         <div className="footer-links">
           <a href="https://www.instagram.com/drabeatrizdemarchi/" target="_blank" rel="noreferrer">Instagram <Arrow /></a>
