@@ -16,14 +16,14 @@ const sans = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://somosnext.github.io"),
+  metadataBase: new URL("https://somosnext.github.io/drabeatriz/"),
   title: "Dra. Beatriz Demarchi | Harmonização Facial e Íntima",
   description:
     "Harmonização facial e íntima feminina com naturalidade, planejamento e atendimento humanizado em Dourados, MS.",
   openGraph: {
     title: "Dra. Beatriz Demarchi",
     description: "Harmonização Facial & Íntima em Dourados, MS",
-    images: ["/og.png"],
+    images: ["/drabeatriz/og.png"],
     locale: "pt_BR",
     type: "website",
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dra. Beatriz Demarchi",
     description: "Harmonização Facial & Íntima em Dourados, MS",
-    images: ["/og.png"],
+    images: ["/drabeatriz/og.png"],
   },
 };
 
