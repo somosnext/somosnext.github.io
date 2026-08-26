@@ -15,15 +15,21 @@ const sans = Manrope({
   weight: ["400", "500", "600"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://drabeatrizdemarchi.vercel.app";
+const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const socialImage = `${assetBase}/og.png`;
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://somosnext.github.io/drabeatriz/"),
+  metadataBase: new URL(siteUrl),
   title: "Dra. Beatriz Demarchi | Harmonização Facial e Íntima",
   description:
     "Harmonização facial e íntima feminina com naturalidade, planejamento e atendimento humanizado em Dourados, MS.",
   openGraph: {
     title: "Dra. Beatriz Demarchi",
     description: "Harmonização Facial & Íntima em Dourados, MS",
-    images: ["/drabeatriz/og.png"],
+    images: [socialImage],
     locale: "pt_BR",
     type: "website",
   },
@@ -31,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dra. Beatriz Demarchi",
     description: "Harmonização Facial & Íntima em Dourados, MS",
-    images: ["/drabeatriz/og.png"],
+    images: [socialImage],
   },
 };
 
