@@ -47,7 +47,7 @@ O deploy da Vercel usa `vercel.json` e o script `build:vercel`.
 
 ## Serviços externos
 
-- WhatsApp para agendamento
+- WhatsApp para agendamento: `(67) 99929-4627`
 - Instagram profissional
 - Perfil público de avaliações no Google
 - Vercel e GitHub

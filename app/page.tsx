@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const whatsapp =
-  "https://wa.me/5518996317665?text=Ol%C3%A1%2C%20Dra.%20Beatriz!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.";
+  "https://wa.me/5567999294627?text=Ol%C3%A1%2C%20Dra.%20Beatriz!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.";
 const googleProfile = "https://share.google/wtFcT8o6X7Npu98WC";
 const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -273,7 +273,7 @@ export default function Home() {
           </a>
           <div className="contact-details">
             <div><span>Endereço</span><p>R. Oliveira Marques, 2855<br />Vila Helena · Dourados, MS</p></div>
-            <div><span>Contato</span><p>(18) 99631-7665<br />@drabeatrizdemarchi</p></div>
+            <div><span>Contato</span><p>(67) 99929-4627<br />@drabeatrizdemarchi</p></div>
           </div>
         </div>
       </section>

@@ -24,6 +24,7 @@ O logotipo oficial transparente deve aparecer no cabeçalho e no rodapé. Não u
 - Avaliações públicas reais do Google
 - Galeria horizontal de antes e depois, acessível por toque ou arraste
 - Chamadas para agendamento pelo WhatsApp
+- Número oficial do WhatsApp: `(67) 99929-4627`
 
 ## Restrições
 

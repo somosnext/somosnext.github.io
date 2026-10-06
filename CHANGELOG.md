@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-06
+
+### Alterado
+
+- Número de WhatsApp e todos os links de agendamento atualizados para `(67) 99929-4627`.
+
 ## 2026-08-26
 
 ### Adicionado

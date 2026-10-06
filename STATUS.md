@@ -1,6 +1,6 @@
 # Status
 
-Última atualização: 2026-08-26
+Última atualização: 2026-10-06
 
 ## Concluído
 
@@ -12,6 +12,7 @@
 - Projeto migrado para a estrutura obrigatória de projetos.
 - Projeto Vercel `drabeatrizdemarchi` criado e conectado ao GitHub.
 - Produção verificada em `https://drabeatrizdemarchi.vercel.app`.
+- WhatsApp atualizado para `(67) 99929-4627`.
 
 ## Em desenvolvimento
 
